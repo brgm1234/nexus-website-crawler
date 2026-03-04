@@ -1,0 +1,49 @@
+{
+  "title": "Nexus Website Crawler Input",
+  "description": "Configuration for Nexus Website Crawler",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "startUrls": {
+      "title": "Start URLs",
+      "type": "array",
+      "description": "URLs to start scraping from (e.g., https://example.com)",
+      "editor": "requestListSources",
+      "prefill": [
+        {
+          "url": "https://example.com"
+        }
+      ]
+    },
+    "maxRequestsPerCrawl": {
+      "title": "Max Requests Per Crawl",
+      "type": "integer",
+      "description": "Maximum number of pages to scrape. Set 0 for unlimited.",
+      "default": 100,
+      "minimum": 0
+    },
+    "maxConcurrency": {
+      "title": "Max Concurrency",
+      "type": "integer",
+      "description": "Maximum number of concurrent browser pages.",
+      "default": 5,
+      "minimum": 1,
+      "maximum": 50
+    },
+    "proxyConfiguration": {
+      "title": "Proxy Configuration",
+      "type": "object",
+      "description": "Proxy settings for the crawler.",
+      "editor": "proxy",
+      "default": {
+        "useApifyProxy": true,
+        "apifyProxyGroups": [
+          "BUYPROXIES94952"
+        ]
+      }
+    }
+  },
+  "required": [
+    "startUrls"
+  ]
+}
